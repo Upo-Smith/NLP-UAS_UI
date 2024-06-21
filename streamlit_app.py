@@ -3,6 +3,9 @@ import information_ex as ie
 
 st.markdown('''## **UI Information Extraction**''')
 st.write('')
+st.markdown('''**Nama: Fakhrul Ibad**''')
+st.markdown('''**NIM: 210411100212**''')
+st.write('')
 
 st.markdown('''Extracting Subject, Predicate, and Object from sentence''')
 st.write('')
@@ -15,6 +18,16 @@ pred = ie.get_relation(inputan)
 st.write('')
 st.write('')
 st.write('')
-st.markdown(f'''##### Subject: :red[{sub}]''')
-st.markdown(f'''##### Predicate: :green[{pred}]''')
-st.markdown(f'''##### Object: :orange[{obj}]''')
+
+if sub == '':
+    st.markdown(f'''##### Subject: :red[-]''')
+else:
+    st.markdown(f'''##### Subject: :red[{sub}]''')
+if pred == '':
+    st.markdown(f'''##### Predicate: :green[-]''')
+else:
+    st.markdown(f'''##### Predicate: :green[{pred}]''')
+if obj == '':
+    st.markdown(f'''##### Object: :orange[-]''')
+else:
+    st.markdown(f'''##### Object: :orange[{obj}]''')
