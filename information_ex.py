@@ -1,11 +1,20 @@
-
 import spacy
+import re
+import string
 
 from spacy import displacy
 from spacy.matcher import Matcher
 from spacy.tokens import Span
 
 nlp = spacy.load('en_core_web_sm')
+
+def preprocessing(text):
+    text = text.lower()
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    text = re.sub(r'\b(\w+)\b\s*(?=.*\b\1\b)', '', text).strip()
+    text = re.sub(r'\s+', ' ', text)
+
+    return text
 
 def get_entities(sent):
     ## chunk 1
@@ -56,7 +65,7 @@ def get_entities(sent):
         prv_tok_text = tok.text
     #############################################################
 
-    return ent1.strip(), ent2.strip()
+    return preprocessing(ent1.strip()), preprocessing(ent2.strip())
 
 def get_relation(sent):
 
@@ -78,4 +87,4 @@ def get_relation(sent):
 
     span = doc[matches[k][1]:matches[k][2]]
 
-    return(span.text)
+    return preprocessing(span.text)
