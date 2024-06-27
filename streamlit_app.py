@@ -3,7 +3,7 @@ import information_ex as ie
 
 st.markdown('''## **UI Information Extraction**''')
 st.write('')
-st.markdown('''**Nama: Fakhrul Ibad**''')
+st.markdown('''**NAMA: FAKHRUL IBAD**''')
 st.markdown('''**NIM: 210411100212**''')
 st.write('')
 
@@ -24,9 +24,9 @@ if sub == '':
 else:
     st.markdown(f'''##### Subject: :red[{sub}]''')
 if pred == '':
-    st.markdown(f'''##### Predicate: :green[-]''')
+    st.markdown(f'''##### Predicate (Verb): :green[-]''')
 else:
-    st.markdown(f'''##### Predicate: :green[{pred}]''')
+    st.markdown(f'''##### Predicate (Verb): :green[{pred}]''')
 if obj == '':
     st.markdown(f'''##### Object: :orange[-]''')
 else:
